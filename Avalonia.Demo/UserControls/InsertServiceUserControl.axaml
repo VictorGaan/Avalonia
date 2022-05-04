@@ -1,0 +1,61 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:contracts="clr-namespace:Avalonia.Demo.Contracts"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Avalonia.Demo.UserControls.InsertServiceUserControl">
+    <UserControl.Resources>
+        <contracts:BitmapAssetValueConverter x:Key="variableImage"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Classes="default" Margin="5" Text="Идентификатор"></TextBlock>
+        <TextBlock Classes="default" Margin="5" Grid.Row="1" Text="Название"></TextBlock>
+        <TextBlock Classes="default" Margin="5" Grid.Row="2" Text="Стоимость"></TextBlock>
+        <TextBlock Classes="default" Margin="5" Grid.Row="3" Text="Длительность (в секундах)"></TextBlock>
+        <TextBlock Classes="default" Margin="5" Grid.Row="4" Text="Описание"></TextBlock>
+        <TextBlock Classes="default" Margin="5" Grid.Row="5" Text="Скидка"></TextBlock>
+        <TextBlock Classes="default" Margin="5" Grid.Row="6" Text="Главное изображение"></TextBlock>
+        
+        <TextBox Name="TbId" Classes="default" IsEnabled="False" Margin="5" Text="{Binding Id}" Grid.Column="1"></TextBox>
+        <TextBox TextWrapping="Wrap" Name="TbTitle" Grid.Column="1" Grid.Row="1" Margin="5" Classes="default" Text="{Binding Title}"></TextBox>
+        <TextBox Name="TbCost" Grid.Column="1" Grid.Row="2" Margin="5" Classes="default" Text="{Binding Cost}"></TextBox>
+        <TextBox Name="TbDuration" Grid.Column="1" Grid.Row="3" Margin="5" Classes="default" Text="{Binding DurationInSeconds}"></TextBox>
+        <TextBox Name="TbDesc" Grid.Column="1" Grid.Row="4" Margin="5" Classes="default" Text="{Binding Description}"></TextBox>
+        <TextBox Name="TbDiscount" Grid.Column="1" Grid.Row="5" Margin="5" Classes="default" Text="{Binding Discount}"></TextBox>
+        <WrapPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="6">
+            <Image Margin="5" Name="MainImage" Classes="main" Source="{Binding MainImagePath,Converter={StaticResource variableImage}}"></Image>
+            <Button Margin="5"  Name="BtnAttach" Content="Прикрепить" Click="BtnAttach_OnClick"></Button>
+        </WrapPanel>
+        <Button Grid.Row="7" Name="BtnBack" Content="Назад" Click="BtnBack_OnClick"></Button>
+        <Button Grid.Row="7" Grid.Column="1" Name="BtnSubmit" Click="BtnSubmit_OnClick" Content="Подтвердить"></Button>
+        <TextBlock Classes="default" Margin="5" Grid.Column="2" Text="Дополнительные изображения"></TextBlock>
+        <ListBox Grid.Column="3" Background="White" Name="PhotosListBox" Items="{Binding ServicePhotos}" Grid.RowSpan="7">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Image Classes="default" Source="{Binding PhotoPath,Converter={StaticResource variableImage}}"></Image>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <WrapPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="7">
+            <Button Margin="5" Name="BtnInsertServicePhoto" Content="Добавить" Click="BtnInsertServicePhoto_OnClick"></Button>
+            <Button Margin="5" Name="BtnDeleteServicePhoto" Content="Удалить" Click="BtnDeleteServicePhoto_OnClick"></Button>
+        </WrapPanel>
+    </Grid>
+</UserControl>

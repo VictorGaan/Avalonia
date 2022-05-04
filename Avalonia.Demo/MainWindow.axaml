@@ -1,0 +1,24 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Avalonia.Demo.MainWindow"
+        Title="School"
+        Icon="/Images/school_logo.ico" Classes="base" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Source="Images/school_logo.png" Width="100" Height="100" Margin="10"></Image>
+            <TextBlock Grid.Column="1" Classes="title" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Программные решения для бизнеса"></TextBlock>
+        </Grid>
+        <UserControl Grid.Row="1" Name="Frame" Margin="10"></UserControl>
+    </Grid>
+</Window>

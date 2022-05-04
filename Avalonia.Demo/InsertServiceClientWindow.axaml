@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Avalonia.Demo.InsertServiceClientWindow"
+        Title="Добавление клиента на услугу" Classes="base">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Margin="5"  Classes="default" Text="Наименование услуги"></TextBlock>
+        <TextBlock Margin="5"  Grid.Row="1" Classes="default" Text="Продолжительность"></TextBlock>
+        <TextBlock Margin="5"  Grid.Row="2" Classes="default" Text="Клиент"></TextBlock>
+        <TextBlock Margin="5"  Grid.Row="3" Classes="default" Text="Дата"></TextBlock>
+        <TextBlock Margin="5"  Grid.Row="4" Classes="default" Text="Время"></TextBlock>
+        <TextBlock Margin="5"  Grid.Row="5" Classes="default" Text="Комментарий"></TextBlock>
+        <TextBox Margin="5"  Classes="default" IsEnabled="False" Grid.Column="1" Name="TbNameService" Text="{Binding Title}"></TextBox>
+        <TextBox Margin="5"  Classes="default" IsEnabled="False" Grid.Column="1" Grid.Row="1" Name="TbDuration" Text="{Binding DurationInSeconds}"></TextBox>
+        <ComboBox Margin="5"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" Name="CmbClients">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1} {2}">
+                                <Binding Path="LastName"></Binding>
+                                <Binding Path="FirstName"></Binding>
+                                <Binding Path="Patronymic"></Binding>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <DatePicker Margin="5"  Grid.Column="1" Grid.Row="3" Name="DpDate"></DatePicker>
+        <TimePicker Margin="5"  Grid.Column="1" Grid.Row="4" Name="TpTime"></TimePicker>
+        <TextBox TextWrapping="Wrap" Margin="5" Classes="default" Grid.Column="1" Grid.Row="5" Name="TbComment"></TextBox>
+        <Button Margin="5"  Grid.Column="1" Grid.Row="6" Content="Добавить" Name="BtnInsert" Click="BtnInsert_OnClick"></Button>
+    </Grid>
+</Window>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Avalonia.Demo/App.axaml" value="Avalonia.Demo/Avalonia.Demo.csproj" />
+        <entry key="Avalonia.Demo/AuthenticationWindow.axaml" value="Avalonia.Demo/Avalonia.Demo.csproj" />
+        <entry key="Avalonia.Demo/InsertServiceClientWindow.axaml" value="Avalonia.Demo/Avalonia.Demo.csproj" />
+        <entry key="Avalonia.Demo/MainWindow.axaml" value="Avalonia.Demo/Avalonia.Demo.csproj" />
+        <entry key="Avalonia.Demo/UserControls/AdminUserControl.axaml" value="Avalonia.Demo/Avalonia.Demo.csproj" />
+        <entry key="Avalonia.Demo/UserControls/InsertServiceUserControl.axaml" value="Avalonia.Demo/Avalonia.Demo.csproj" />
+        <entry key="Avalonia.Demo/UserControls/ServiceUserControl.axaml" value="Avalonia.Demo/Avalonia.Demo.csproj" />
+        <entry key="Avalonia.Demo/UserControls/UpcomingEntriesUserControl.axaml" value="Avalonia.Demo/Avalonia.Demo.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
